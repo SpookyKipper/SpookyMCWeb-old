@@ -324,13 +324,27 @@
 	}
 	</script><script>
    function showstatus() {
-
+//based on a pen by @robinselmer
+var url = "https://api.minetools.eu/ping/play.spookymc.xyz";
+ 
+$.getJSON(url, function(r) {
+    //data is the JSON string
+ if(r.error){
+    $('#rest').html('<div style="color: red">Server Offline</div>');
+   return false;
+ } 
+var pl = '';
+ if(r.players.sample.length > 0 ){ pl = '<br>OP: '+r.players.sample[0].name;  } 
+  $('#rest').html('<div style="color: green">Server Online</div><b>Players Online:</b> '+r.players.online+pl);
+ $('#favicon').attr('src', r.favicon);
+    
+});
 		
         Swal.fire({
     	  title: '<strong>Status</strong>',
     	  icon: 'info',
     	  html:
-    	    '<div class=card><div class=icon><img src=https://pbs.twimg.com/profile_images/808180587605331969/u-CULTwl_400x400.jpg id=favicon></div><div class=header><div class=image><img src=https://i.imgur.com/Q2EyA4N.png alt=""></div><h2>play.spookymc.xyz</h2></div><div id=rest>Loading ...</div></div>',
+    	    '<div class=card><div class=icon></div><div class=header><div class=image><img src=https://i.imgur.com/Q2EyA4N.png alt=""></div><h2>play.spookymc.xyz</h2></div><div id=rest>Loading ...</div></div>',
     	  showCloseButton: true,
     	  showCancelButton: false,
     	  focusConfirm: false,
@@ -342,6 +356,6 @@
 
 	}
    </script>
-	<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js></script><script src=https://www.spookymc.xyz/assets/status/script.js></script>
+	<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js></script>
   </body>
 </html>
