@@ -343,7 +343,7 @@ $.getJSON(url, function(r) {
    return false;
  } 
 var pl = '';
- if(r.players.sample.length > 0 ){ pl = '<br>OP: '+r.players.sample[0].name;  } 
+ if(r.players.sample.length > 0 ){ pl = ';  } 
   $('#rest').html('<div style="color: green">Server Online</div><b>Players Online:</b> '+r.players.online+pl);
  $('#favicon').attr('src', r.favicon);
     
