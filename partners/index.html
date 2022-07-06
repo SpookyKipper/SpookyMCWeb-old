@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="assets/dropdown/css/style.css">
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  
+  <script src="https://www.spookymc.xyz/assets/scripts/sweetalert2.all.min.js" defer></script>
  <style> 
 @font-face {
    font-family: Ubuntu;
@@ -98,8 +98,12 @@
 								<b> Gamemodes</b> SMP, Resources World, Anarchy (2B2T mode)<br>
 <b>Platforms</b> Java 1.7 - 1.19, Bedrock 1.19.0<br>
 <b>IP</b> asallen.mcbe.tw<br>
-<b>Bedrock Port</b> 25556<br><b>Website</b> <a href="https://www.astsmc.ml/" target="_blank">https://astsmc.ml/</a><br><b>Discord</b> <a href="https://discord.gg/rDPDhVE2fC" target="_blank">https://go.astsmc.ml/dc</a>
-								
+<b>Bedrock Port</b> 25556<br><b>Website</b> <a href="https://www.astsmc.ml/" target="_blank">https://astsmc.ml/</a><br><b>Discord</b> <a href="https://discord.gg/rDPDhVE2fC" target="_blank">https://go.astsmc.ml/dc
+
+
+<br>
+<b>Status</b> <div onclick="showstatus('asallen.mcbe.tw')" style="display: inline"><a href="#" onclick="showstatus('asallen.mcbe.tw')">Check Status</a>
+		</div>						
 								
 
 
@@ -268,8 +272,42 @@
         </div>
     </div>
 </section>
+  <script src="https://www.spookymc.xyz/assets/scripts/sweetalert2.all.min.js" defer></script>
+<script>
+   function showstatus(ipaddress) {
+   alert('e');
+//based on a pen by @robinselmer
+var url = "https://api.minetools.eu/ping/" + ipaddress;
+ 
+$.getJSON(url, function(r) {
+    //data is the JSON string
+ if(r.error){
+    $('#rest').html('<div style="color: red">Server Offline</div>');
+   return false;
+ } 
+var pl = '';
+ if(r.players.sample.length > 0 ){ pl = '  } 
+  $('#rest').html('<div style="color: green">Server Online</div><b>Players Online:</b> '+r.players.online+pl);
+ $('#favicon').attr('src', r.favicon);
+    
+});
+		
+        Swal.fire({
+    	  title: '<strong>Status</strong>',
+    	  icon: 'info',
+    	  html:
+    	    '</div><div id=rest>Loading ...</div></div>',
+    	  showCloseButton: true,
+    	  showCancelButton: false,
+    	  focusConfirm: false,
+    	  confirmButtonText:
+    	  'Close',
+    	  confirmButtonAriaLabel: 'Close',
+	})
+  
 
-
+	}
+   </script>
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/popper/popper.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -281,8 +319,8 @@
   <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
   <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
   <script src="assets/theme/js/script.js"></script>
-  
-  
+  	<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js></script>
+
 </body>
 </html>
 
